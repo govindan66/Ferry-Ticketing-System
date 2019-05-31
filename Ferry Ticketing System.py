@@ -1,13 +1,11 @@
 import datetime
 import os
-import sys
 import random
 def clear():            #to make the screen cleared
     os.system('CLS')
     return()
 clear()
 a=datetime.datetime.now()
-
 print("""
                 WELCOME TO FERRY TICKETING SYSTEM
 
@@ -25,12 +23,10 @@ print("""
 print("press Enter to continue....")
 input()
 clear()
-
 month=a.strftime("%b")
 day=a.strftime("%d")
 year=a.strftime("%Y")
 FID="FID"+"00"+str(random.randint(1,8)) #to generate random ferry ID
-
 seat_Business=[0]*10                #Assigns seat for business class passsenger
 seat_Economy=[0]*40                 #Assigns seat for Economy class passengers
 class tickets:                      #class to create objects
@@ -106,7 +102,6 @@ class ViewSeat:                 #class for viewing seat arranement
         fileView=open("seat.txt","r")
         return(fileView.read())
 def menu():
-
     print("""        ******************************************************")
         *                FERRY TICKETING SYSTEM              *
         *                       MAIN MENU                    *
@@ -149,7 +144,6 @@ def purchase():
     "m":menu}
     clear()
     func_dict1.get(choice1,alert2)()
-
 def view():
     a=ViewSeat()
     a.viewArrangement()
@@ -190,7 +184,6 @@ def Business():
         print("sorry! the seat is already reserved. Choose another seat number")
         return Business()
     SeatReserve(SeatNo,1)
-
     return menu()
 def SeatReserve(SeatNo,x):  #function to get the deatil of the passenger
     try:
@@ -214,7 +207,6 @@ def SeatReserve(SeatNo,x):  #function to get the deatil of the passenger
     clear()
     print(myTicket.getTicket())
     input("Press enter to return to Main menu")
-
 def Economy():
     for x in seat_Economy:
         if x==0:
@@ -244,6 +236,3 @@ def Economy():
     clear()
     return menu()
 menu()
-
-
-
